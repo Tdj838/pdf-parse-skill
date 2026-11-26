@@ -1,0 +1,17 @@
+{
+  "ran_at": "2026-11-26T13:30:28.766821Z",
+  "wall_time_s": 1.94,
+  "exit_code": 0,
+  "cases": [
+    "twocolumn",
+    "scanned",
+    "roberta",
+    "attention"
+  ],
+  "hashes": {
+    "twocolumn": "6dc2c9fb4e104b7f82a3d1dc21d34655b43f66a07c9050da150b7b02ec849b80",
+    "scanned": "b1e2552589e5066e67ed475c107f21de7724b01d4b58b408862b938a602d8545",
+    "roberta": "76a3872d244793563a5b000b818cbaf0ca8972ab1145d32be474c05b2a8f3070",
+    "attention": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+  }
+}
