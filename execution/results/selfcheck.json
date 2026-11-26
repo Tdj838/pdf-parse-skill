@@ -1,0 +1,74 @@
+{
+  "checks": [
+    {
+      "case": "twocolumn-synthetic",
+      "fidelity": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "aligned_ratio": 1.0,
+        "chars_hypothesis": 1724,
+        "chars_reference": 1724
+      },
+      "reading_order": {
+        "paragraphs_found": 11,
+        "paragraphs_missing": 0,
+        "monotonic": true
+      },
+      "header_footer_leaks": [],
+      "table": {
+        "exact": true,
+        "row_accuracy": 1.0,
+        "found": 1,
+        "expected": 1
+      },
+      "anchors": {
+        "blocks": 25,
+        "anchored": 25,
+        "coverage": 1.0
+      },
+      "pass": true
+    },
+    {
+      "case": "scanned",
+      "status": "partial",
+      "flagged_pages": [
+        1
+      ],
+      "must_flag_pages": [
+        1
+      ],
+      "all_expected_flagged": true,
+      "emitted_blocks": 0,
+      "no_fabricated_text": true,
+      "pass": true
+    },
+    {
+      "case": "roberta",
+      "abstract_trigram_recall": 0.9837,
+      "title_recovered": true,
+      "sections_found": 27,
+      "numbered_sections": 21,
+      "pages_with_text_layer": 13,
+      "pages_total": 13,
+      "unknown_glyph_ratio": 0.0,
+      "status": "success",
+      "pass": true
+    },
+    {
+      "case": "attention",
+      "abstract_trigram_recall": 0.9695,
+      "title_recovered": true,
+      "sections_found": 14,
+      "numbered_sections": 9,
+      "pages_with_text_layer": 15,
+      "pages_total": 15,
+      "unknown_glyph_ratio": 0.0,
+      "status": "success",
+      "pass": true
+    }
+  ],
+  "passed": 4,
+  "failed": [],
+  "all_pass": true
+}
