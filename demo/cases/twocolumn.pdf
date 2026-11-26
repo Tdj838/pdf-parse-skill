@@ -1,0 +1,500 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding /FirstChar 32 /Widths [600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600] >>
+endobj
+4 0 obj
+<< /Length 3280 >>
+stream
+BT
+/F1 18.0 Tf
+1 0 0 1 25.20 726.00 Tm
+(Column-Aware Text Extraction with Traceable Evidence) Tj
+ET
+BT
+/F1 12.0 Tf
+1 0 0 1 212.40 704.00 Tm
+(A. Researcher, B. Reviewer) Tj
+ET
+BT
+/F1 11.0 Tf
+1 0 0 1 207.00 690.00 Tm
+(Institute of Document Analysis) Tj
+ET
+BT
+/F1 11.0 Tf
+1 0 0 1 56.00 662.00 Tm
+(Abstract) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 44.00 646.00 Tm
+(We present a layout reader that reconstructs two-column reading order from glyph) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 44.00 635.00 Tm
+(geometry, keeps a page and bounding box for every character, and reports unreadable) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 44.00 624.00 Tm
+(regions instead of guessing them.) Tj
+ET
+BT
+/F1 11.0 Tf
+1 0 0 1 56.00 560.00 Tm
+(1  Introduction) Tj
+ET
+BT
+/F1 11.0 Tf
+1 0 0 1 316.00 560.00 Tm
+(2  Method) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 540.00 Tm
+(Text extraction from research papers is) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 528.00 Tm
+(usually evaluated on rendered pages, not) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 516.00 Tm
+(on the structure a reader needs. A) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 504.00 Tm
+(sentence that begins in the left column) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 492.00 Tm
+(and ends in the right column is a) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 480.00 Tm
+(sentence no reader ever wrote, yet) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 468.00 Tm
+(column interleaving produces exactly) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 456.00 Tm
+(that artefact.) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 438.00 Tm
+(The failure is easy to miss because the) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 426.00 Tm
+(words are all present and the character) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 414.00 Tm
+(count looks healthy. Only a reader) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 402.00 Tm
+(notices that the grammar has collapsed.) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 384.00 Tm
+(We treat reading order as a geometric) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 372.00 Tm
+(problem: glyph boxes are cut recursively) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 360.00 Tm
+(along whitespace, so a vertical cut) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 348.00 Tm
+(yields columns that are emitted left to) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 336.00 Tm
+(right before any line inside them is) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 324.00 Tm
+(assembled.) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 540.00 Tm
+(Two properties matter for downstream) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 528.00 Tm
+(use. First, every character keeps a page) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 516.00 Tm
+(and a bounding box, so a claim can be) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 504.00 Tm
+(traced back to the spot it came from.) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 492.00 Tm
+(Second, the extractor reports what it) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 480.00 Tm
+(could not read instead of smoothing it) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 468.00 Tm
+(over.) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 450.00 Tm
+(Reproducibility of the layout analysis) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 438.00 Tm
+(is what makes the second property) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 426.00 Tm
+(useful: a reviewer can rerun the same) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 414.00 Tm
+(page and obtain the same boxes.) Tj
+ET
+BT
+/F1 8.0 Tf
+1 0 0 1 56.00 762.00 Tm
+(Preprint - do not distribute) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 303.30 40.00 Tm
+(1) Tj
+ET
+
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 3105 >>
+stream
+BT
+/F1 8.0 Tf
+1 0 0 1 56.00 762.00 Tm
+(Preprint - do not distribute) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 303.30 40.00 Tm
+(2) Tj
+ET
+BT
+/F1 11.0 Tf
+1 0 0 1 56.00 720.00 Tm
+(3  Results) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 700.00 Tm
+(The recursive cut is applied to glyph) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 688.00 Tm
+(boxes rather than to finished lines.) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 676.00 Tm
+(Line assembly needs a column decision) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 664.00 Tm
+(first, and a column decision made per) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 652.00 Tm
+(line oscillates on justified text where) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 640.00 Tm
+(the right edge is ragged.) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 622.00 Tm
+(Header and footer removal is decided per) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 610.00 Tm
+(document, not per page: a band line is) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 598.00 Tm
+(dropped only when the same normalised) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 56.00 586.00 Tm
+(text recurs across pages.) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 700.00 Tm
+(Tables are detected from aligned) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 688.00 Tm
+(whitespace columns. A candidate needs at) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 676.00 Tm
+(least three rows, consistent column) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 664.00 Tm
+(starts and numeric content before it is) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 652.00 Tm
+(reported.) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 634.00 Tm
+(When the heuristic declines, the block) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 622.00 Tm
+(stays ordinary text and the result says) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 610.00 Tm
+(no table was found, which is the honest) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 316.00 598.00 Tm
+(outcome for a two-column page body.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 56.00 560.00 Tm
+(Table 1: Extraction accuracy on the two-column set.) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 56.00 544.00 Tm
+(Model) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 236.00 544.00 Tm
+(Precision) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 356.00 544.00 Tm
+(Recall) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 470.00 544.00 Tm
+(F1) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 56.00 531.00 Tm
+(baseline) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 236.00 531.00 Tm
+(0.812) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 356.00 531.00 Tm
+(0.774) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 470.00 531.00 Tm
+(0.793) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 56.00 518.00 Tm
+(column-cut) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 236.00 518.00 Tm
+(0.965) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 356.00 518.00 Tm
+(0.958) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 470.00 518.00 Tm
+(0.961) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 56.00 505.00 Tm
+(column-cut+anchors) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 236.00 505.00 Tm
+(0.971) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 356.00 505.00 Tm
+(0.960) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 470.00 505.00 Tm
+(0.965) Tj
+ET
+BT
+/F1 11.0 Tf
+1 0 0 1 56.00 430.00 Tm
+(4  Conclusion) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 44.00 412.00 Tm
+(Reading order belongs to the page geometry, not to the text string. Cutting glyph boxes) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 44.00 400.00 Tm
+(first and assembling lines second keeps columns apart and keeps every character) Tj
+ET
+BT
+/F1 10.0 Tf
+1 0 0 1 44.00 388.00 Tm
+(traceable.) Tj
+ET
+
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 559 >>
+stream
+BT
+/F1 8.0 Tf
+1 0 0 1 56.00 762.00 Tm
+(Preprint - do not distribute) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 303.30 40.00 Tm
+(3) Tj
+ET
+BT
+/F1 11.0 Tf
+1 0 0 1 56.00 730.00 Tm
+(References) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 56.00 712.00 Tm
+([1] A. Author. Reading order in two-column documents. Journal of Layout, 2019.) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 56.00 697.00 Tm
+([2] B. Writer and C. Editor. Evidence anchors for extracted text. In Proc. DocEng, 2021.) Tj
+ET
+BT
+/F1 9.0 Tf
+1 0 0 1 56.00 682.00 Tm
+([3] D. Reader. Table structure from whitespace. Technical report, 2022.) Tj
+ET
+
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Resources << /Font << /F1 3 0 R >> >> /Contents 8 0 R >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000133 00000 n 
+0000001148 00000 n 
+0000004480 00000 n 
+0000004610 00000 n 
+0000007767 00000 n 
+0000007897 00000 n 
+0000008507 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+8637
+%%EOF
