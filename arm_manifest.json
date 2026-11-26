@@ -1,0 +1,204 @@
+{
+  "arm_version": "1.1",
+  "paper": {
+    "title": "PDF -> evidence-anchored structure: a dependency-free layout reader",
+    "kind": "skill",
+    "topic": "产品赛第 08 题：阅读01｜文献文档解析",
+    "challenge_id": "product-arena-08-3027d350",
+    "abstract": "A PDF parsing Skill that reconstructs two-column reading order from glyph geometry, keeps a page and bounding box for every block, structures sections, tables and equations, and reports unreadable pages instead of guessing them. Standard library only."
+  },
+  "entrypoint": "src/reproduce.py",
+  "entrypoint_args": [
+    "--out",
+    "execution"
+  ],
+  "execution": {
+    "log_path": "execution/run.log",
+    "exit_code": 0,
+    "ran_at": "2026-11-26T13:30:28.766821Z",
+    "wall_time_s": 1.94,
+    "artifacts": [
+      {
+        "id": "result-twocolumn",
+        "path": "execution/results/twocolumn.json",
+        "type": "data",
+        "format": "json",
+        "bytes": 15382,
+        "checksum_sha256": "7521e80edbdb513a2326d972772dd3466d3b4a43c839d99b010557ac47d9803d",
+        "role": "parse result"
+      },
+      {
+        "id": "result-scanned",
+        "path": "execution/results/scanned.json",
+        "type": "data",
+        "format": "json",
+        "bytes": 1813,
+        "checksum_sha256": "1b62984eb9d76c9c105fa8b37842a2ed21de14e551cc519c3bc537afa6aac338",
+        "role": "parse result"
+      },
+      {
+        "id": "result-roberta",
+        "path": "execution/results/roberta.json",
+        "type": "data",
+        "format": "json",
+        "bytes": 163725,
+        "checksum_sha256": "c807abd8f4ac6285732bd5105aa927eeb159f97fb77c7b21986207c02b3f6121",
+        "role": "parse result"
+      },
+      {
+        "id": "result-attention",
+        "path": "execution/results/attention.json",
+        "type": "data",
+        "format": "json",
+        "bytes": 146644,
+        "checksum_sha256": "98f5e0fa71495fa4d276b78a374e6d829c7e23e62c16aecf0adb7c94e5412c6a",
+        "role": "parse result"
+      },
+      {
+        "id": "selfcheck",
+        "path": "execution/results/selfcheck.json",
+        "type": "metric",
+        "format": "json",
+        "bytes": 1672,
+        "checksum_sha256": "5c44b338037b48c9bd924a2ee96db646da4f4415a9d22f90cc8498c349d97ab5",
+        "role": "measured checks"
+      },
+      {
+        "id": "aggregate",
+        "path": "execution/results/result.json",
+        "type": "data",
+        "format": "json",
+        "bytes": 4566,
+        "checksum_sha256": "146a910598287ae40f6ee382702fc9e0bbb801c7c5356e9c8c88f857a64b7c8f",
+        "role": "aggregate result"
+      },
+      {
+        "id": "run-log",
+        "path": "execution/run.log",
+        "type": "log",
+        "format": "txt",
+        "bytes": 1155,
+        "checksum_sha256": "69e29a7f07b889c208d5938f8a5bc7f687c3cd0a858f5c3c641396678fd9bd4e",
+        "role": "run log"
+      }
+    ]
+  },
+  "expected_outputs": [
+    {
+      "name": "twocolumn:running-text character F1",
+      "type": "metric",
+      "path": "execution/results/selfcheck.json",
+      "produced_by": [
+        "selfcheck",
+        "result-twocolumn"
+      ],
+      "comparison_method": "exact_match",
+      "tolerance": 0.02
+    },
+    {
+      "name": "twocolumn:table cell matrix",
+      "type": "table",
+      "path": "execution/results/twocolumn.json",
+      "produced_by": [
+        "result-twocolumn"
+      ],
+      "comparison_method": "exact_match"
+    },
+    {
+      "name": "twocolumn:paragraph reading order",
+      "type": "metric",
+      "path": "execution/results/selfcheck.json",
+      "produced_by": [
+        "selfcheck"
+      ],
+      "comparison_method": "exact_match"
+    },
+    {
+      "name": "roberta:abstract trigram recall",
+      "type": "metric",
+      "path": "execution/results/selfcheck.json",
+      "produced_by": [
+        "selfcheck",
+        "result-roberta"
+      ],
+      "comparison_method": "custom",
+      "tolerance": 0.05
+    },
+    {
+      "name": "attention:abstract trigram recall",
+      "type": "metric",
+      "path": "execution/results/selfcheck.json",
+      "produced_by": [
+        "selfcheck",
+        "result-attention"
+      ],
+      "comparison_method": "custom",
+      "tolerance": 0.05
+    },
+    {
+      "name": "scanned:honest status instead of fabricated text",
+      "type": "metric",
+      "path": "execution/results/selfcheck.json",
+      "produced_by": [
+        "selfcheck",
+        "result-scanned"
+      ],
+      "comparison_method": "exact_match"
+    },
+    {
+      "name": "execution log",
+      "type": "log",
+      "path": "execution/run.log",
+      "produced_by": [
+        "run-log"
+      ],
+      "comparison_method": "exact_match"
+    }
+  ],
+  "characterization": {
+    "path": "characterization.json"
+  },
+  "trace": "trace/trace.jsonl",
+  "skills_used": [
+    {
+      "skill_id": "pdf-parse",
+      "version": "1.0.0",
+      "parameters": {
+        "path": "SKILL.md",
+        "role": "the submitted skill"
+      }
+    }
+  ],
+  "environment": {
+    "python_version": "3.12.14",
+    "dependencies": "python standard library only; no third-party packages",
+    "docker_image": "python:3.12-slim",
+    "estimated_runtime_minutes": 0.05,
+    "gpu_required": false,
+    "extra_packages": []
+  },
+  "handoff": {
+    "status": "partial",
+    "next_suggestion": "Install SKILL.md under /skills/weekly-skill and run the three fixed platform cases. This bundle demonstrates the skill on four inputs with known answers (two generated, two public arXiv preprints); it does not contain results for the withheld cases.",
+    "next_owner_hint": {
+      "modality": "knowledge",
+      "suggested_role": "platform-evaluator",
+      "rationale": "Execution, characterization and trace are populated from a real run. knowledge/rag/sub_agent are not used by this task; the fixed cases are withheld from the author, so the evaluator is the next owner of the remaining evidence."
+    },
+    "modality_notes": {
+      "execution": "src/reproduce.py parsed four PDFs and wrote every result in this bundle; execution/run.log is its stdout capture.",
+      "characterization": "Every deviation came from scripts/selfcheck.py, which recomputes the score from the emitted JSON and independent ground truth rather than trusting the extractor.",
+      "trace": "trace/trace.jsonl is emitted by the run itself with paired tool_call/tool_result ids and the artifact paths it created."
+    }
+  },
+  "provenance": {
+    "generated_by": "src/build_bundle.py",
+    "generated_at": "2026-11-26T13:30:36.513822Z",
+    "input_hashes": {
+      "twocolumn": "6dc2c9fb4e104b7f82a3d1dc21d34655b43f66a07c9050da150b7b02ec849b80",
+      "scanned": "b1e2552589e5066e67ed475c107f21de7724b01d4b58b408862b938a602d8545",
+      "roberta": "76a3872d244793563a5b000b818cbaf0ca8972ab1145d32be474c05b2a8f3070",
+      "attention": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+    }
+  }
+}
