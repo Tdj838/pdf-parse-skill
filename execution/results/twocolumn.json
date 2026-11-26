@@ -1,0 +1,579 @@
+{
+  "case_id": "twocolumn",
+  "status": "success",
+  "input": {
+    "path": "D:\\下载软件\\deepseek\\submission\\demo\\cases\\twocolumn.pdf",
+    "filename": "twocolumn.pdf",
+    "sha256": "6dc2c9fb4e104b7f82a3d1dc21d34655b43f66a07c9050da150b7b02ec849b80",
+    "bytes": 8903,
+    "pages": 3
+  },
+  "provenance": {
+    "engine": "pdfparse",
+    "version": "1.0.0",
+    "pdf_header": "%PDF-1.4",
+    "info": {},
+    "runtime_ms": 20,
+    "dependencies": [
+      "python-stdlib"
+    ]
+  },
+  "document": {
+    "title": "Column-Aware Text Extraction with Traceable Evidence",
+    "sections": [
+      {
+        "heading": "Abstract",
+        "level": 3,
+        "page": 1,
+        "bbox": [
+          56.0,
+          662.0,
+          108.8,
+          662.0
+        ]
+      },
+      {
+        "heading": "1 Introduction",
+        "level": 1,
+        "page": 1,
+        "bbox": [
+          56.0,
+          560.0,
+          155.0,
+          560.0
+        ]
+      },
+      {
+        "heading": "2 Method",
+        "level": 1,
+        "page": 1,
+        "bbox": [
+          316.0,
+          560.0,
+          375.4,
+          560.0
+        ]
+      },
+      {
+        "heading": "3 Results",
+        "level": 1,
+        "page": 2,
+        "bbox": [
+          56.0,
+          720.0,
+          122.0,
+          720.0
+        ]
+      },
+      {
+        "heading": "4 Conclusion",
+        "level": 1,
+        "page": 2,
+        "bbox": [
+          56.0,
+          430.0,
+          141.8,
+          430.0
+        ]
+      },
+      {
+        "heading": "References",
+        "level": 3,
+        "page": 3,
+        "bbox": [
+          56.0,
+          730.0,
+          122.0,
+          730.0
+        ]
+      }
+    ],
+    "figures": [],
+    "tables": [
+      {
+        "page": 2,
+        "bbox": [
+          56.0,
+          505.0,
+          497.0,
+          544.0
+        ],
+        "n_rows": 4,
+        "n_cols": 4,
+        "rows": [
+          [
+            "Model",
+            "Precision",
+            "Recall",
+            "F1"
+          ],
+          [
+            "baseline",
+            "0.812",
+            "0.774",
+            "0.793"
+          ],
+          [
+            "column-cut",
+            "0.965",
+            "0.958",
+            "0.961"
+          ],
+          [
+            "column-cut+anchors",
+            "0.971",
+            "0.960",
+            "0.965"
+          ]
+        ],
+        "method": "whitespace_column",
+        "confidence": 1.0,
+        "caption_guess": "Table 1: Extraction accuracy on the two-column set."
+      }
+    ],
+    "equations": [],
+    "references": [
+      {
+        "page": 3,
+        "bbox": [
+          56.0,
+          712.0,
+          477.2,
+          712.0
+        ],
+        "raw": "[1] A. Author. Reading order in two-column documents. Journal of Layout, 2019."
+      },
+      {
+        "page": 3,
+        "bbox": [
+          56.0,
+          697.0,
+          531.2,
+          697.0
+        ],
+        "raw": "[2] B. Writer and C. Editor. Evidence anchors for extracted text. In Proc. DocEng, 2021."
+      },
+      {
+        "page": 3,
+        "bbox": [
+          56.0,
+          682.0,
+          439.4,
+          682.0
+        ],
+        "raw": "[3] D. Reader. Table structure from whitespace. Technical report, 2022."
+      }
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "width": 612.0,
+        "height": 792.0,
+        "char_count": 1351,
+        "has_text_layer": true,
+        "blocks": [
+          {
+            "type": "title",
+            "text": "Column-Aware Text Extraction with Traceable Evidence",
+            "bbox": [
+              25.2,
+              726.0,
+              586.8,
+              726.0
+            ],
+            "font_size": 18.0,
+            "line_count": 1
+          },
+          {
+            "type": "authors",
+            "text": "A. Researcher, B. Reviewer",
+            "bbox": [
+              212.4,
+              704.0,
+              399.6,
+              704.0
+            ],
+            "font_size": 12.0,
+            "line_count": 1
+          },
+          {
+            "type": "authors",
+            "text": "Institute of Document Analysis",
+            "bbox": [
+              207.0,
+              690.0,
+              405.0,
+              690.0
+            ],
+            "font_size": 11.0,
+            "line_count": 1
+          },
+          {
+            "type": "heading",
+            "text": "Abstract",
+            "bbox": [
+              56.0,
+              662.0,
+              108.8,
+              662.0
+            ],
+            "font_size": 11.0,
+            "line_count": 1
+          },
+          {
+            "type": "paragraph",
+            "text": "We present a layout reader that reconstructs two-column reading order from glyph geometry, keeps a page and bounding box for every character, and reports unreadable regions instead of guessing them.",
+            "bbox": [
+              44.0,
+              624.0,
+              492.2,
+              646.0
+            ],
+            "font_size": 9.0,
+            "line_count": 3
+          },
+          {
+            "type": "heading",
+            "text": "1 Introduction",
+            "bbox": [
+              56.0,
+              560.0,
+              155.0,
+              560.0
+            ],
+            "font_size": 11.0,
+            "line_count": 1
+          },
+          {
+            "type": "paragraph",
+            "text": "Text extraction from research papers is usually evaluated on rendered pages, not on the structure a reader needs. A sentence that begins in the left column and ends in the right column is a sentence no reader ever wrote, yet column interleaving produces exactly that artefact.",
+            "bbox": [
+              56.0,
+              456.0,
+              296.0,
+              540.0
+            ],
+            "font_size": 10.0,
+            "line_count": 8
+          },
+          {
+            "type": "paragraph",
+            "text": "The failure is easy to miss because the words are all present and the character count looks healthy. Only a reader notices that the grammar has collapsed.",
+            "bbox": [
+              56.0,
+              402.0,
+              290.0,
+              438.0
+            ],
+            "font_size": 10.0,
+            "line_count": 4
+          },
+          {
+            "type": "paragraph",
+            "text": "We treat reading order as a geometric problem: glyph boxes are cut recursively along whitespace, so a vertical cut yields columns that are emitted left to right before any line inside them is assembled.",
+            "bbox": [
+              56.0,
+              324.0,
+              296.0,
+              384.0
+            ],
+            "font_size": 10.0,
+            "line_count": 6
+          },
+          {
+            "type": "heading",
+            "text": "2 Method",
+            "bbox": [
+              316.0,
+              560.0,
+              375.4,
+              560.0
+            ],
+            "font_size": 11.0,
+            "line_count": 1
+          },
+          {
+            "type": "paragraph",
+            "text": "Two properties matter for downstream use. First, every character keeps a page and a bounding box, so a claim can be traced back to the spot it came from. Second, the extractor reports what it could not read instead of smoothing it over.",
+            "bbox": [
+              316.0,
+              468.0,
+              556.0,
+              540.0
+            ],
+            "font_size": 10.0,
+            "line_count": 7
+          },
+          {
+            "type": "paragraph",
+            "text": "Reproducibility of the layout analysis is what makes the second property useful: a reviewer can rerun the same page and obtain the same boxes.",
+            "bbox": [
+              316.0,
+              414.0,
+              544.0,
+              450.0
+            ],
+            "font_size": 10.0,
+            "line_count": 4
+          }
+        ],
+        "removed_headers_footers": [
+          {
+            "text": "Preprint - do not distribute",
+            "kind": "header_or_footer",
+            "bbox": [
+              56.0,
+              762.0,
+              190.4,
+              762.0
+            ]
+          },
+          {
+            "text": "1",
+            "kind": "header_or_footer",
+            "bbox": [
+              303.3,
+              40.0,
+              308.7,
+              40.0
+            ]
+          }
+        ],
+        "images": []
+      },
+      {
+        "page": 2,
+        "width": 612.0,
+        "height": 792.0,
+        "char_count": 1039,
+        "has_text_layer": true,
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "3 Results",
+            "bbox": [
+              56.0,
+              720.0,
+              122.0,
+              720.0
+            ],
+            "font_size": 11.0,
+            "line_count": 1
+          },
+          {
+            "type": "paragraph",
+            "text": "The recursive cut is applied to glyph boxes rather than to finished lines. Line assembly needs a column decision first, and a column decision made per line oscillates on justified text where the right edge is ragged.",
+            "bbox": [
+              56.0,
+              640.0,
+              290.0,
+              700.0
+            ],
+            "font_size": 10.0,
+            "line_count": 6
+          },
+          {
+            "type": "paragraph",
+            "text": "Header and footer removal is decided per document, not per page: a band line is dropped only when the same normalised text recurs across pages.",
+            "bbox": [
+              56.0,
+              586.0,
+              296.0,
+              622.0
+            ],
+            "font_size": 10.0,
+            "line_count": 4
+          },
+          {
+            "type": "paragraph",
+            "text": "Tables are detected from aligned whitespace columns. A candidate needs at least three rows, consistent column starts and numeric content before it is reported.",
+            "bbox": [
+              316.0,
+              652.0,
+              556.0,
+              700.0
+            ],
+            "font_size": 10.0,
+            "line_count": 5
+          },
+          {
+            "type": "paragraph",
+            "text": "When the heuristic declines, the block stays ordinary text and the result says no table was found, which is the honest outcome for a two-column page body.",
+            "bbox": [
+              316.0,
+              598.0,
+              550.0,
+              634.0
+            ],
+            "font_size": 10.0,
+            "line_count": 4
+          },
+          {
+            "type": "caption",
+            "text": "Table 1: Extraction accuracy on the two-column set.",
+            "bbox": [
+              56.0,
+              560.0,
+              346.7,
+              560.0
+            ],
+            "font_size": 9.5,
+            "line_count": 1
+          },
+          {
+            "type": "table",
+            "text": "Model Precision Recall F1 baseline 0.812 0.774 0.793 column-cut 0.965 0.958 0.961 column-cut+anchors 0.971 0.960 0.965",
+            "bbox": [
+              56.0,
+              505.0,
+              497.0,
+              544.0
+            ],
+            "font_size": 9.0,
+            "line_count": 4
+          },
+          {
+            "type": "heading",
+            "text": "4 Conclusion",
+            "bbox": [
+              56.0,
+              430.0,
+              141.8,
+              430.0
+            ],
+            "font_size": 11.0,
+            "line_count": 1
+          },
+          {
+            "type": "paragraph",
+            "text": "Reading order belongs to the page geometry, not to the text string. Cutting glyph boxes first and assembling lines second keeps columns apart and keeps every character traceable.",
+            "bbox": [
+              44.0,
+              388.0,
+              566.0,
+              412.0
+            ],
+            "font_size": 10.0,
+            "line_count": 3
+          }
+        ],
+        "removed_headers_footers": [
+          {
+            "text": "Preprint - do not distribute",
+            "kind": "header_or_footer",
+            "bbox": [
+              56.0,
+              762.0,
+              190.4,
+              762.0
+            ]
+          },
+          {
+            "text": "2",
+            "kind": "header_or_footer",
+            "bbox": [
+              303.3,
+              40.0,
+              308.7,
+              40.0
+            ]
+          }
+        ],
+        "images": []
+      },
+      {
+        "page": 3,
+        "width": 612.0,
+        "height": 792.0,
+        "char_count": 276,
+        "has_text_layer": true,
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "References",
+            "bbox": [
+              56.0,
+              730.0,
+              122.0,
+              730.0
+            ],
+            "font_size": 11.0,
+            "line_count": 1
+          },
+          {
+            "type": "paragraph",
+            "text": "[1] A. Author. Reading order in two-column documents. Journal of Layout, 2019.",
+            "bbox": [
+              56.0,
+              712.0,
+              477.2,
+              712.0
+            ],
+            "font_size": 9.0,
+            "line_count": 1
+          },
+          {
+            "type": "paragraph",
+            "text": "[2] B. Writer and C. Editor. Evidence anchors for extracted text. In Proc. DocEng, 2021.",
+            "bbox": [
+              56.0,
+              697.0,
+              531.2,
+              697.0
+            ],
+            "font_size": 9.0,
+            "line_count": 1
+          },
+          {
+            "type": "paragraph",
+            "text": "[3] D. Reader. Table structure from whitespace. Technical report, 2022.",
+            "bbox": [
+              56.0,
+              682.0,
+              439.4,
+              682.0
+            ],
+            "font_size": 9.0,
+            "line_count": 1
+          }
+        ],
+        "removed_headers_footers": [
+          {
+            "text": "Preprint - do not distribute",
+            "kind": "header_or_footer",
+            "bbox": [
+              56.0,
+              762.0,
+              190.4,
+              762.0
+            ]
+          },
+          {
+            "text": "3",
+            "kind": "header_or_footer",
+            "bbox": [
+              303.3,
+              40.0,
+              308.7,
+              40.0
+            ]
+          }
+        ],
+        "images": []
+      }
+    ]
+  },
+  "checks": {
+    "unknown_glyph_count": 0,
+    "unknown_glyph_ratio": 0.0,
+    "pages_total": 3,
+    "pages_without_text_layer": [],
+    "header_footer_removed": 6,
+    "rotated_text_runs": 0,
+    "repairs": [],
+    "body_font_size": 10.0
+  },
+  "uncertainty": [
+    "No figure captions were matched; figure inventory may be incomplete."
+  ]
+}
