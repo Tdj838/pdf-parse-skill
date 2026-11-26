@@ -1,0 +1,166 @@
+{
+  "case_id": "pdf-parse-demo",
+  "status": "success",
+  "summary": {
+    "cases_run": 4,
+    "cases_passed": 4,
+    "all_pass": true
+  },
+  "cases": {
+    "twocolumn": {
+      "status": "success",
+      "pages": 3,
+      "sha256": "6dc2c9fb4e104b7f82a3d1dc21d34655b43f66a07c9050da150b7b02ec849b80",
+      "checks": {
+        "unknown_glyph_count": 0,
+        "unknown_glyph_ratio": 0.0,
+        "pages_total": 3,
+        "pages_without_text_layer": [],
+        "header_footer_removed": 6,
+        "rotated_text_runs": 0,
+        "repairs": [],
+        "body_font_size": 10.0
+      },
+      "uncertainty": [
+        "No figure captions were matched; figure inventory may be incomplete."
+      ]
+    },
+    "scanned": {
+      "status": "partial",
+      "pages": 1,
+      "sha256": "b1e2552589e5066e67ed475c107f21de7724b01d4b58b408862b938a602d8545",
+      "checks": {
+        "unknown_glyph_count": 0,
+        "unknown_glyph_ratio": 0.0,
+        "pages_total": 1,
+        "pages_without_text_layer": [
+          1
+        ],
+        "header_footer_removed": 0,
+        "rotated_text_runs": 0,
+        "repairs": [],
+        "body_font_size": 10.0
+      },
+      "uncertainty": [
+        "Pages [1] carry no text layer; their content is NOT extracted and needs OCR (status partial).",
+        "No section headings were detected; section structure is unavailable.",
+        "No tables were detected by the whitespace-column heuristic.",
+        "No figure captions were matched; figure inventory may be incomplete."
+      ]
+    },
+    "roberta": {
+      "status": "success",
+      "pages": 13,
+      "sha256": "76a3872d244793563a5b000b818cbaf0ca8972ab1145d32be474c05b2a8f3070",
+      "checks": {
+        "unknown_glyph_count": 0,
+        "unknown_glyph_ratio": 0.0,
+        "pages_total": 13,
+        "pages_without_text_layer": [],
+        "header_footer_removed": 0,
+        "rotated_text_runs": 40,
+        "repairs": [],
+        "body_font_size": 10.9
+      },
+      "uncertainty": [
+        "No figure captions were matched; figure inventory may be incomplete.",
+        "40 rotated text runs were excluded from reading order."
+      ]
+    },
+    "attention": {
+      "status": "success",
+      "pages": 15,
+      "sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "checks": {
+        "unknown_glyph_count": 0,
+        "unknown_glyph_ratio": 0.0,
+        "pages_total": 15,
+        "pages_without_text_layer": [],
+        "header_footer_removed": 14,
+        "rotated_text_runs": 39,
+        "repairs": [],
+        "body_font_size": 10.0
+      },
+      "uncertainty": [
+        "39 rotated text runs were excluded from reading order."
+      ]
+    }
+  },
+  "checks": [
+    {
+      "case": "twocolumn-synthetic",
+      "fidelity": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "aligned_ratio": 1.0,
+        "chars_hypothesis": 1724,
+        "chars_reference": 1724
+      },
+      "reading_order": {
+        "paragraphs_found": 11,
+        "paragraphs_missing": 0,
+        "monotonic": true
+      },
+      "header_footer_leaks": [],
+      "table": {
+        "exact": true,
+        "row_accuracy": 1.0,
+        "found": 1,
+        "expected": 1
+      },
+      "anchors": {
+        "blocks": 25,
+        "anchored": 25,
+        "coverage": 1.0
+      },
+      "pass": true
+    },
+    {
+      "case": "scanned",
+      "status": "partial",
+      "flagged_pages": [
+        1
+      ],
+      "must_flag_pages": [
+        1
+      ],
+      "all_expected_flagged": true,
+      "emitted_blocks": 0,
+      "no_fabricated_text": true,
+      "pass": true
+    },
+    {
+      "case": "roberta",
+      "abstract_trigram_recall": 0.9837,
+      "title_recovered": true,
+      "sections_found": 27,
+      "numbered_sections": 21,
+      "pages_with_text_layer": 13,
+      "pages_total": 13,
+      "unknown_glyph_ratio": 0.0,
+      "status": "success",
+      "pass": true
+    },
+    {
+      "case": "attention",
+      "abstract_trigram_recall": 0.9695,
+      "title_recovered": true,
+      "sections_found": 14,
+      "numbered_sections": 9,
+      "pages_with_text_layer": 15,
+      "pages_total": 15,
+      "unknown_glyph_ratio": 0.0,
+      "status": "success",
+      "pass": true
+    }
+  ],
+  "provenance": {
+    "engine": "1.0.0",
+    "python": "3.12.14",
+    "dependencies": [
+      "python-stdlib"
+    ],
+    "ran_at": "2026-11-26T13:30:28.764826Z"
+  }
+}
