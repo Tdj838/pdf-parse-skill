@@ -1,0 +1,215 @@
+{
+  "arm_version": "1.1",
+  "summary": {
+    "cases": 4,
+    "passed": 4,
+    "all_pass": true,
+    "unweighted_mean_score": 0.9953,
+    "generated_at": "2026-11-26T13:30:36.508829Z"
+  },
+  "deviations_from_paper": [
+    {
+      "target": "twocolumn:running-text character F1",
+      "metric": "exact_match",
+      "reference_value": "1.0 (generated page, exact ground truth)",
+      "actual_value": 1.0,
+      "score": 1.0,
+      "tolerance": 0.02,
+      "evidence_artifact": "result-twocolumn",
+      "explanation": "Whitespace-insensitive character F1 against the generator's own text, which is exact by construction. Precision and recall are equal, so the extractor neither dropped text nor invented any."
+    },
+    {
+      "target": "twocolumn:paragraph reading order",
+      "metric": "exact_match",
+      "reference_value": "11 paragraphs in document order",
+      "actual_value": "11/11 found, monotonic=True",
+      "score": 1.0,
+      "evidence_artifact": "result-twocolumn",
+      "explanation": "Each ground-truth paragraph is searched in the extracted stream at or after the previous hit. A column interleave fails this even when every word is present."
+    },
+    {
+      "target": "twocolumn:table cell matrix",
+      "metric": "exact_match",
+      "reference_value": "4x4 matrix",
+      "actual_value": "4x4, row accuracy 1.0",
+      "score": 1.0,
+      "evidence_artifact": "result-twocolumn",
+      "explanation": "Cell-by-cell comparison of the reconstructed matrix against the generated table; exact match means every cell landed in its row and column."
+    },
+    {
+      "target": "twocolumn:anchor coverage",
+      "metric": "exact_match",
+      "reference_value": "every block carries page + bbox",
+      "actual_value": 1.0,
+      "score": 1.0,
+      "evidence_artifact": "result-twocolumn",
+      "explanation": "Share of emitted blocks with a four-number bounding box whose x-range is well formed."
+    },
+    {
+      "target": "twocolumn:running header/footer leakage",
+      "metric": "exact_match",
+      "reference_value": "0 leaked lines",
+      "actual_value": 0,
+      "score": 1.0,
+      "evidence_artifact": "result-twocolumn",
+      "explanation": "The repeating header and the centred page number must not appear in the running text; the page number is the harder case because it sits inside the column gutter."
+    },
+    {
+      "target": "roberta:abstract trigram recall",
+      "metric": "custom",
+      "verifier_script": "scripts/selfcheck.py",
+      "reference_value": "the abstract text published in the arXiv metadata for RoBERTa (arXiv 1907.11692)",
+      "actual_value": 0.9837,
+      "score": 0.9837,
+      "tolerance": 0.05,
+      "evidence_artifact": "result-roberta",
+      "explanation": "Fraction of the publisher's abstract word-trigrams present in the extracted text. Word order is preserved by trigrams, so interleaved columns or dropped lines lower it. Residual gap is mostly line-break hyphenation and ligature spelling."
+    },
+    {
+      "target": "roberta:title recovery",
+      "metric": "exact_match",
+      "reference_value": "RoBERTa (arXiv 1907.11692)",
+      "actual_value": "recovered",
+      "score": 1.0,
+      "evidence_artifact": "result-roberta",
+      "explanation": "The largest-font block in the front matter is the title; compared against the arXiv metadata title."
+    },
+    {
+      "target": "attention:abstract trigram recall",
+      "metric": "custom",
+      "verifier_script": "scripts/selfcheck.py",
+      "reference_value": "the abstract text published in the arXiv metadata for Attention Is All You Need (arXiv 1706.03762)",
+      "actual_value": 0.9695,
+      "score": 0.9695,
+      "tolerance": 0.05,
+      "evidence_artifact": "result-attention",
+      "explanation": "Fraction of the publisher's abstract word-trigrams present in the extracted text. Word order is preserved by trigrams, so interleaved columns or dropped lines lower it. Residual gap is mostly line-break hyphenation and ligature spelling."
+    },
+    {
+      "target": "attention:title recovery",
+      "metric": "exact_match",
+      "reference_value": "Attention Is All You Need (arXiv 1706.03762)",
+      "actual_value": "recovered",
+      "score": 1.0,
+      "evidence_artifact": "result-attention",
+      "explanation": "The largest-font block in the front matter is the title; compared against the arXiv metadata title."
+    },
+    {
+      "target": "scanned:honest status instead of fabricated text",
+      "metric": "custom",
+      "verifier_script": "scripts/selfcheck.py",
+      "reference_value": "status partial, page flagged for OCR, zero text blocks",
+      "actual_value": "status partial, flagged [1], 0 blocks",
+      "score": 1.0,
+      "evidence_artifact": "result-scanned",
+      "explanation": "An image-only page has no text layer. Emitting anything for it would be invention; the check requires the page to be flagged and the block list to stay empty."
+    }
+  ],
+  "envelope": [
+    {
+      "param": "pages_per_document",
+      "min": 1,
+      "max": 15,
+      "tested": 32,
+      "unit": "pages",
+      "note": "Four documents, 1 to 15 pages each."
+    },
+    {
+      "param": "columns",
+      "min": 1,
+      "max": 2,
+      "tested": 2,
+      "unit": "columns",
+      "note": "Two-column ACM/ACL layout and single-column arXiv layout."
+    },
+    {
+      "param": "body_font_size",
+      "min": 9.0,
+      "max": 11.0,
+      "tested": 10.0,
+      "unit": "pt",
+      "note": "Column detection scales with the modal font size."
+    },
+    {
+      "param": "font_types",
+      "min": 1,
+      "max": 4,
+      "tested": 4,
+      "unit": "kinds",
+      "note": "Base-14 Courier, pdfTeX Type1 subsets with /Differences, WinAnsi, and Identity-H style CID fonts with /ToUnicode are all handled by the decoder."
+    },
+    {
+      "param": "runtime",
+      "min": 0.2,
+      "max": 1.3,
+      "tested": 4,
+      "unit": "s/document",
+      "note": "13-page paper parses in about 1.2 s on a single core, stdlib only."
+    }
+  ],
+  "failure_modes": [
+    {
+      "condition": "page has no text layer (scan / image-only)",
+      "symptom": "status partial, page listed in ocr_required_pages, blocks empty",
+      "evidence_artifact": "result-scanned",
+      "evidence_trace": "trace/trace.jsonl"
+    },
+    {
+      "condition": "font subset without /ToUnicode and without /Differences",
+      "symptom": "characters become U+FFFD and unknown_glyph_ratio rises; status turns partial above 2%",
+      "evidence_artifact": "result-roberta"
+    },
+    {
+      "condition": "table whose cells are not separated by visible whitespace",
+      "symptom": "no table reported for that region; text stays in a paragraph block",
+      "evidence_artifact": "result-attention"
+    },
+    {
+      "condition": "rotated text (arXiv side stamp, vertical axis label)",
+      "symptom": "excluded from reading order and counted in rotated_text_runs",
+      "evidence_artifact": "result-roberta"
+    },
+    {
+      "condition": "encrypted PDF without a password",
+      "symptom": "status failed, no document catalog found; no password guessing",
+      "evidence_artifact": "result-twocolumn"
+    }
+  ],
+  "sensitivity": [
+    {
+      "param": "header_footer_band_fraction",
+      "range": "0.08 / 0.10 of page height",
+      "outcome_metric": "header/footer leakage and column-gutter detection",
+      "outcome_range": "a narrower band misses a low footer; a wider band eats the first body line on dense pages. 0.08 plus the 'repeated text' rule is what the fixture checks.",
+      "evidence_trace": "trace/trace.jsonl"
+    },
+    {
+      "param": "column_gutter_min_width",
+      "range": "0.85 x body font size (pt)",
+      "outcome_metric": "number of columns detected",
+      "outcome_range": "below ~0.5 em a justified paragraph's word gaps become candidate gutters; above ~1.5 em a tight two-column gutter is missed.",
+      "evidence_trace": "trace/trace.jsonl"
+    },
+    {
+      "param": "table_row_alignment_tolerance",
+      "range": "2.5 pt",
+      "outcome_metric": "table rows rejoined across split regions",
+      "outcome_range": "tighter than 1 pt fails to rejoin rows set on a baseline shift; looser than 4 pt starts merging neighbouring paragraph lines.",
+      "evidence_trace": "trace/trace.jsonl"
+    }
+  ],
+  "provenance": {
+    "engine": "pdfparse",
+    "engine_version": "1.0.0",
+    "python": "3.12.14",
+    "dependencies": [
+      "python-stdlib"
+    ],
+    "reference_inputs": {
+      "roberta": "arXiv:1907.11692v1 (public preprint, included in demo/papers)",
+      "attention": "arXiv:1706.03762v7 (public preprint, included in demo/papers)",
+      "twocolumn-synthetic": "generated by scripts/pdffixtures.py, exact ground truth",
+      "scanned": "rasterised from the synthetic page, no text layer by construction"
+    }
+  }
+}
