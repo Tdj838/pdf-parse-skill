@@ -1,0 +1,15 @@
+2026-11-26T21:30:26 FIXTURES reused=twocolumn,scanned truth=ground_truth.json
+2026-11-26T21:30:26 PARSE case=twocolumn status=success pages=3 chars=2666
+2026-11-26T21:30:26 ARTIFACT result-twocolumn parse result for twocolumn (3 pages)
+2026-11-26T21:30:26 PARSE case=scanned status=partial pages=1 chars=0
+2026-11-26T21:30:26 ARTIFACT result-scanned parse result for scanned (1 pages)
+2026-11-26T21:30:27 PARSE case=roberta status=success pages=13 chars=41221
+2026-11-26T21:30:27 ARTIFACT result-roberta parse result for roberta (13 pages)
+2026-11-26T21:30:28 PARSE case=attention status=success pages=15 chars=32246
+2026-11-26T21:30:28 ARTIFACT result-attention parse result for attention (15 pages)
+2026-11-26T21:30:28 CASE_MODE case_id=probe-twocolumn contract_keys=4 all_filled=true
+2026-11-26T21:30:28 ARTIFACT case-mode-probe case.json mode output with contract keys echoed
+2026-11-26T21:30:28 SELFCHECK passed=4 failed=0 all_pass=true
+2026-11-26T21:30:28 ARTIFACT selfcheck measured checks for 4 cases
+2026-11-26T21:30:28 ARTIFACT aggregate aggregate result for 4 cases
+2026-11-26T21:30:28 ARTIFACT run-log run log of this execution
