@@ -1,0 +1,225 @@
+{
+  "case_id": "twocolumn-synthetic",
+  "pages": [
+    {
+      "page": 1,
+      "parts": [
+        {
+          "kind": "title",
+          "text": "Column-Aware Text Extraction with Traceable Evidence",
+          "bbox": [
+            null,
+            726.0
+          ]
+        },
+        {
+          "kind": "authors",
+          "text": "A. Researcher, B. Reviewer"
+        },
+        {
+          "kind": "abstract",
+          "text": "We present a layout reader that reconstructs two-column reading order from glyph geometry, keeps a page and bounding box for every character, and reports unreadable regions instead of guessing them."
+        },
+        {
+          "kind": "column",
+          "index": 1,
+          "column": "left",
+          "lines": [
+            "Text extraction from research papers is",
+            "usually evaluated on rendered pages, not",
+            "on the structure a reader needs. A",
+            "sentence that begins in the left column",
+            "and ends in the right column is a",
+            "sentence no reader ever wrote, yet",
+            "column interleaving produces exactly",
+            "that artefact.",
+            "The failure is easy to miss because the",
+            "words are all present and the character",
+            "count looks healthy. Only a reader",
+            "notices that the grammar has collapsed.",
+            "We treat reading order as a geometric",
+            "problem: glyph boxes are cut recursively",
+            "along whitespace, so a vertical cut",
+            "yields columns that are emitted left to",
+            "right before any line inside them is",
+            "assembled."
+          ],
+          "paragraphs": [
+            "Text extraction from research papers is usually evaluated on rendered pages, not on the structure a reader needs. A sentence that begins in the left column and ends in the right column is a sentence no reader ever wrote, yet column interleaving produces exactly that artefact.",
+            "The failure is easy to miss because the words are all present and the character count looks healthy. Only a reader notices that the grammar has collapsed.",
+            "We treat reading order as a geometric problem: glyph boxes are cut recursively along whitespace, so a vertical cut yields columns that are emitted left to right before any line inside them is assembled."
+          ]
+        },
+        {
+          "kind": "column",
+          "index": 2,
+          "column": "right",
+          "lines": [
+            "Two properties matter for downstream",
+            "use. First, every character keeps a page",
+            "and a bounding box, so a claim can be",
+            "traced back to the spot it came from.",
+            "Second, the extractor reports what it",
+            "could not read instead of smoothing it",
+            "over.",
+            "Reproducibility of the layout analysis",
+            "is what makes the second property",
+            "useful: a reviewer can rerun the same",
+            "page and obtain the same boxes."
+          ],
+          "paragraphs": [
+            "Two properties matter for downstream use. First, every character keeps a page and a bounding box, so a claim can be traced back to the spot it came from. Second, the extractor reports what it could not read instead of smoothing it over.",
+            "Reproducibility of the layout analysis is what makes the second property useful: a reviewer can rerun the same page and obtain the same boxes."
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "parts": [
+        {
+          "kind": "column",
+          "index": 3,
+          "column": "left",
+          "lines": [
+            "The recursive cut is applied to glyph",
+            "boxes rather than to finished lines.",
+            "Line assembly needs a column decision",
+            "first, and a column decision made per",
+            "line oscillates on justified text where",
+            "the right edge is ragged.",
+            "Header and footer removal is decided per",
+            "document, not per page: a band line is",
+            "dropped only when the same normalised",
+            "text recurs across pages."
+          ],
+          "paragraphs": [
+            "The recursive cut is applied to glyph boxes rather than to finished lines. Line assembly needs a column decision first, and a column decision made per line oscillates on justified text where the right edge is ragged.",
+            "Header and footer removal is decided per document, not per page: a band line is dropped only when the same normalised text recurs across pages."
+          ]
+        },
+        {
+          "kind": "column",
+          "index": 4,
+          "column": "right",
+          "lines": [
+            "Tables are detected from aligned",
+            "whitespace columns. A candidate needs at",
+            "least three rows, consistent column",
+            "starts and numeric content before it is",
+            "reported.",
+            "When the heuristic declines, the block",
+            "stays ordinary text and the result says",
+            "no table was found, which is the honest",
+            "outcome for a two-column page body."
+          ],
+          "paragraphs": [
+            "Tables are detected from aligned whitespace columns. A candidate needs at least three rows, consistent column starts and numeric content before it is reported.",
+            "When the heuristic declines, the block stays ordinary text and the result says no table was found, which is the honest outcome for a two-column page body."
+          ]
+        },
+        {
+          "kind": "table",
+          "rows": [
+            [
+              "Model",
+              "Precision",
+              "Recall",
+              "F1"
+            ],
+            [
+              "baseline",
+              "0.812",
+              "0.774",
+              "0.793"
+            ],
+            [
+              "column-cut",
+              "0.965",
+              "0.958",
+              "0.961"
+            ],
+            [
+              "column-cut+anchors",
+              "0.971",
+              "0.960",
+              "0.965"
+            ]
+          ]
+        },
+        {
+          "kind": "conclusion",
+          "text": "Reading order belongs to the page geometry, not to the text string. Cutting glyph boxes first and assembling lines second keeps columns apart and keeps every character traceable."
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "parts": [
+        {
+          "kind": "references",
+          "entries": [
+            "[1] A. Author. Reading order in two-column documents. Journal of Layout, 2019.",
+            "[2] B. Writer and C. Editor. Evidence anchors for extracted text. In Proc. DocEng, 2021.",
+            "[3] D. Reader. Table structure from whitespace. Technical report, 2022."
+          ]
+        }
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "page": 2,
+      "rows": [
+        [
+          "Model",
+          "Precision",
+          "Recall",
+          "F1"
+        ],
+        [
+          "baseline",
+          "0.812",
+          "0.774",
+          "0.793"
+        ],
+        [
+          "column-cut",
+          "0.965",
+          "0.958",
+          "0.961"
+        ],
+        [
+          "column-cut+anchors",
+          "0.971",
+          "0.960",
+          "0.965"
+        ]
+      ],
+      "caption": "Table 1: Extraction accuracy on the two-column set."
+    }
+  ],
+  "headers": [
+    "Preprint - do not distribute"
+  ],
+  "footers": [
+    "1"
+  ],
+  "references": [
+    "[1] A. Author. Reading order in two-column documents. Journal of Layout, 2019.",
+    "[2] B. Writer and C. Editor. Evidence anchors for extracted text. In Proc. DocEng, 2021.",
+    "[3] D. Reader. Table structure from whitespace. Technical report, 2022."
+  ],
+  "body_text": "Text extraction from research papers is usually evaluated on rendered pages, not on the structure a reader needs. A sentence that begins in the left column and ends in the right column is a sentence no reader ever wrote, yet column interleaving produces exactly that artefact. The failure is easy to miss because the words are all present and the character count looks healthy. Only a reader notices that the grammar has collapsed. We treat reading order as a geometric problem: glyph boxes are cut recursively along whitespace, so a vertical cut yields columns that are emitted left to right before any line inside them is assembled. Two properties matter for downstream use. First, every character keeps a page and a bounding box, so a claim can be traced back to the spot it came from. Second, the extractor reports what it could not read instead of smoothing it over. Reproducibility of the layout analysis is what makes the second property useful: a reviewer can rerun the same page and obtain the same boxes. The recursive cut is applied to glyph boxes rather than to finished lines. Line assembly needs a column decision first, and a column decision made per line oscillates on justified text where the right edge is ragged. Header and footer removal is decided per document, not per page: a band line is dropped only when the same normalised text recurs across pages. Tables are detected from aligned whitespace columns. A candidate needs at least three rows, consistent column starts and numeric content before it is reported. When the heuristic declines, the block stays ordinary text and the result says no table was found, which is the honest outcome for a two-column page body. Reading order belongs to the page geometry, not to the text string. Cutting glyph boxes first and assembling lines second keeps columns apart and keeps every character traceable.",
+  "files": {
+    "twocolumn": "twocolumn.pdf",
+    "scanned": "scanned.pdf"
+  },
+  "scanned_expectation": {
+    "status": "partial",
+    "must_flag_pages": [
+      1
+    ],
+    "must_not_emit_text": true
+  }
+}
