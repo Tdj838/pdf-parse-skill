@@ -1,0 +1,10 @@
+# No third-party dependencies.
+#
+# scripts/pdfparse.py and scripts/selfcheck.py run on the Python 3.9+ standard
+# library alone. This file is intentionally empty of packages: a parsing skill
+# that needs poppler, pdfplumber or an OCR binary installed is a skill that fails
+# on the machine that actually needed it.
+#
+# Optional, only if the environment already provides them and the task asks for
+# scanned-page text: any OCR engine (e.g. tesseract) invoked separately, with its
+# output labelled as OCR-derived in the result.
