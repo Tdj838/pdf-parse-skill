@@ -1,0 +1,74 @@
+{
+  "case_id": "scanned",
+  "status": "partial",
+  "input": {
+    "path": "D:\\下载软件\\deepseek\\submission\\demo\\cases\\scanned.pdf",
+    "filename": "scanned.pdf",
+    "sha256": "b1e2552589e5066e67ed475c107f21de7724b01d4b58b408862b938a602d8545",
+    "bytes": 51643,
+    "pages": 1
+  },
+  "provenance": {
+    "engine": "pdfparse",
+    "version": "1.0.0",
+    "pdf_header": "%PDF-1.4",
+    "info": {},
+    "runtime_ms": 1,
+    "dependencies": [
+      "python-stdlib"
+    ]
+  },
+  "document": {
+    "title": null,
+    "sections": [],
+    "figures": [],
+    "tables": [],
+    "equations": [],
+    "references": [],
+    "pages": [
+      {
+        "page": 1,
+        "width": 612.0,
+        "height": 792.0,
+        "char_count": 0,
+        "has_text_layer": false,
+        "blocks": [],
+        "removed_headers_footers": [],
+        "images": [
+          {
+            "name": "Im1",
+            "width": 1224,
+            "height": 1584,
+            "bbox": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    ],
+    "ocr_required_pages": [
+      1
+    ]
+  },
+  "checks": {
+    "unknown_glyph_count": 0,
+    "unknown_glyph_ratio": 0.0,
+    "pages_total": 1,
+    "pages_without_text_layer": [
+      1
+    ],
+    "header_footer_removed": 0,
+    "rotated_text_runs": 0,
+    "repairs": [],
+    "body_font_size": 10.0
+  },
+  "uncertainty": [
+    "Pages [1] carry no text layer; their content is NOT extracted and needs OCR (status partial).",
+    "No section headings were detected; section structure is unavailable.",
+    "No tables were detected by the whitespace-column heuristic.",
+    "No figure captions were matched; figure inventory may be incomplete."
+  ]
+}
