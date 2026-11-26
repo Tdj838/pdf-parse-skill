@@ -1,0 +1,16 @@
+{
+  "case_id": "probe-twocolumn",
+  "task": "Probe: does case mode find the PDF and echo the contract keys?",
+  "materials": [
+    {
+      "kind": "paper",
+      "pdf_path": "demo/cases/twocolumn.pdf"
+    }
+  ],
+  "output_contract": {
+    "status": null,
+    "document": null,
+    "checks": null,
+    "uncertainty": null
+  }
+}
